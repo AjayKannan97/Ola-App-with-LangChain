@@ -81,6 +81,9 @@ from langchain_openai import OpenAI
 import openai
 import random
 
+# from langchain_community.chat_models import ChatOpenAI
+# openai = ChatOpenAI(model_name="gpt-3.5-turbo")
+
 # Define cab services and base fares
 cab_services = {
     "Mini": 50,
@@ -98,8 +101,8 @@ welcome_prompt = PromptTemplate(
     template="Hello {user_name}, welcome to our awesome cab booking app! How can I assist you today?"
 )
 # Verify the welcome_prompt's template and input variables
-print("Welcome Prompt Template:", welcome_prompt.template)
-print("Welcome Prompt Input Variables:", welcome_prompt.input_variables)
+#print("Welcome Prompt Template:", welcome_prompt.template)
+#print("Welcome Prompt Input Variables:", welcome_prompt.input_variables)
 
 llm = OpenAI(openai_api_key="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", temperature=0.7)
 
@@ -107,8 +110,8 @@ llm = OpenAI(openai_api_key="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
 welcome_chain = LLMChain(llm=llm, prompt=welcome_prompt)
 
 # Get user's name and generate a welcoming message
-user_name = input("Please enter your name: ")
-welcome_message = welcome_chain.invoke(input=user_name)
+# user_name = input("Please enter your name: ")
+welcome_message = welcome_chain.invoke(input="Ajay")
 print(welcome_message)
 
 # Get user's pickup and destination locations
