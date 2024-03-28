@@ -11,6 +11,8 @@ pip install langchain-openai
 pip install langchain
 
 -------------------------
+Current Program flow example -
+
 {'user_name': 'Ajay', 'text': '\n\n"Hello Ajay, thank you for choosing our cab service. May I know your pick up location and drop off location, please? Our drivers will be happy to take you to your destination."'}
 
 Please enter your pickup location: T-Nagar
@@ -33,3 +35,14 @@ Sedan cab: $460
 SUV cab: $500
 
 {'pickup': 'T-Nagar', 'destination': 'Adyar', 'ideal_price': 430, 'text': '\n\n"Explore T-Nagar and Adyar with our cab service! Book now for a hassle-free ride to the 430 area. See you soon!"'}
+
+
+---------------------------
+
+Things to do -
+
+1. I have to do a Sequentail Chain for better flow
+
+2. Then only I can ask if any changes in the App or user details
+
+3. After that I have to integrate with an api call function
