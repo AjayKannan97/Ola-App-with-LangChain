@@ -1,5 +1,7 @@
 Experimental code for Ola for Lang chain and Open AI - Not completed
 
+PACKAGE LIST -
+
 pip install pydantic==1.10.11
 
 pip install pydantic -U 
@@ -9,6 +11,16 @@ pip install typing-inspect==0.8.0 typing_extensions==4.5.0
 pip install langchain-openai  
 
 pip install langchain
+
+brew install python@3.11
+
+brew install python3.11 python3.11-distutils
+
+pip install 'langchain[all]' 
+
+pip install -U pip setuptools    
+
+brew install qtbase5-dev  
 
 -------------------------
 Current Program flow example -
