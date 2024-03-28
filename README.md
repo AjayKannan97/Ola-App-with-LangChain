@@ -1,4 +1,4 @@
-experimental code for Ola for Lang chain and Open AI - Not completed
+Experimental code for Ola for Lang chain and Open AI - Not completed
 
 # pip install pydantic==1.10.11
 # pip install pydantic -U 
