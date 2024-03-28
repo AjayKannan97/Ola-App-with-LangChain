@@ -111,6 +111,11 @@ destination_prompt = PromptTemplate(
     template = "You have already asked the details for the cab. User has already keyyed in the {destination}. Acknowledge that. And say that all the cab services will be displayed based on the price slabs. Be to the point."
 )
 
+ideal_prompt = PromptTemplate(
+    input_variables = ['pickup', 'destination', 'ideal_price'],
+    template = "You have to summarize the trip details. The {pickup}, {destination}, {ideal_price} are given. Please keep up crisp and leave a short message as you are running a cab service."
+
+)
 # -------------------------------------
 
 # Verify the welcome_prompt's template and input variables
@@ -154,4 +159,11 @@ for service, base_fare in cab_services.items():
     price = base_fare + (distance * 10)  # Assuming a rate of $10 per km
     print(f"{service} cab: ${price}")
 
+ideal = cab_services['Mini'] + (distance * 10)
 
+ideal_chain = LLMChain(llm=llm, prompt=ideal_prompt)
+ideal_chain.llm.max_tokens = 40  # Adjust max_tokens to approximate 1 sentence
+ideal_message = ideal_chain.invoke(input={"pickup" : pickup_location,
+                                          "destination" : destination_location,
+                                          "ideal_price" : ideal})
+print(ideal_message)
