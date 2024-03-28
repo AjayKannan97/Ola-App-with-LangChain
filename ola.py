@@ -98,8 +98,21 @@ def generate_random_distance():
 # Set up LangChain for generating welcoming messages
 welcome_prompt = PromptTemplate(
     input_variables=["user_name"],
-    template="Hello {user_name}, welcome to our awesome cab booking app! How can I assist you today?"
+    template="You are running a cab service app. The user's name is {user_name}. You got to ask the pick up location and drop off loaction to the user. You have to be polite. Be to the point."
+) 
+
+pickup_prompt = PromptTemplate(
+    input_variables = ["pickup"],
+    template = "You have already asked the details for the cab. User has already keyyed in the {pickup}. Acknowledge that. Also, Ask about the drop-off location. Be to the point."
 )
+
+destination_prompt = PromptTemplate(
+    input_variables = ["destination"],
+    template = "You have already asked the details for the cab. User has already keyyed in the {destination}. Acknowledge that. And say that all the cab services will be displayed based on the price slabs. Be to the point."
+)
+
+# -------------------------------------
+
 # Verify the welcome_prompt's template and input variables
 #print("Welcome Prompt Template:", welcome_prompt.template)
 #print("Welcome Prompt Input Variables:", welcome_prompt.input_variables)
@@ -108,16 +121,29 @@ llm = OpenAI(openai_api_key="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
 
 # Initialize the LLMChain with the LangChain model and the prompt
 welcome_chain = LLMChain(llm=llm, prompt=welcome_prompt)
-
-# Get user's name and generate a welcoming message
-# user_name = input("Please enter your name: ")
+welcome_chain.llm.max_tokens = 40  # Adjust max_tokens to approximate 1 sentence
 welcome_message = welcome_chain.invoke(input="Ajay")
 print(welcome_message)
 
-# Get user's pickup and destination locations
-pickup_location = input("Please enter your pickup location: ")
-destination_location = input("Please enter your destination location: ")
+# Get user's type, pickup and destination locations
 
+# type_cab = input("Please enter the type of cab you prefer using; ")
+
+# -------------------------------------
+pickup_location = input("Please enter your pickup location: ")
+pickup_chain = LLMChain(llm=llm, prompt=pickup_prompt)
+pickup_chain.llm.max_tokens = 40  # Adjust max_tokens to approximate 1 sentence
+pickup_message = pickup_chain.invoke(input=pickup_location)
+print(pickup_message)
+# ---------------------------------------
+
+destination_location = input("Please enter your destination location: ")
+destination_chain = LLMChain(llm=llm, prompt=destination_prompt)
+destination_chain.llm.max_tokens = 40  # Adjust max_tokens to approximate 1 sentence
+destination_message = destination_chain.invoke(input=destination_location)
+print(destination_message)
+
+# --------------------------------------------
 # Generate a random distance
 distance = generate_random_distance()
 print(f"The estimated distance from {pickup_location} to {destination_location} is {distance} km.")
@@ -127,3 +153,5 @@ print("\nEstimated prices for your trip:")
 for service, base_fare in cab_services.items():
     price = base_fare + (distance * 10)  # Assuming a rate of $10 per km
     print(f"{service} cab: ${price}")
+
+
