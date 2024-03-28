@@ -23,9 +23,13 @@ Please enter your destination location: Adyar
 
 The estimated distance from T-Nagar to Adyar is 38 km.
 
+
 Estimated prices for your trip:
+
 Mini cab: $430
+
 Sedan cab: $460
+
 SUV cab: $500
 
 {'pickup': 'T-Nagar', 'destination': 'Adyar', 'ideal_price': 430, 'text': '\n\n"Explore T-Nagar and Adyar with our cab service! Book now for a hassle-free ride to the 430 area. See you soon!"'}
