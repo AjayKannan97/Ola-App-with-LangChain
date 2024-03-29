@@ -6,7 +6,7 @@
 #     @staticmethod
 #     def generate_text(text):
 #         # Replace 'YOUR_API_KEY' with your actual API key
-#         api_key = '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'
+#         api_key = 'YOUR_API_KEY'
 #         endpoint = 'https://en.wikipedia.org/wiki/Ola_Cabs'
 
 #         # Make a POST request to the LangChain API
@@ -122,7 +122,7 @@ ideal_prompt = PromptTemplate(
 #print("Welcome Prompt Template:", welcome_prompt.template)
 #print("Welcome Prompt Input Variables:", welcome_prompt.input_variables)
 
-llm = OpenAI(openai_api_key="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", temperature=0.7)
+llm = OpenAI(openai_api_key="YOUR_API_KEY", temperature=0.7)
 
 # Initialize the LLMChain with the LangChain model and the prompt
 welcome_chain = LLMChain(llm=llm, prompt=welcome_prompt)
