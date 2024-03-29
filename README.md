@@ -1,6 +1,6 @@
-Experimental code for Ola for Lang chain and Open AI - Not completed
+# Experimental code for Ola for Lang chain and Open AI - Not completed
 
-PACKAGE LIST -
+## PACKAGE LIST -
 
 pip install pydantic==1.10.11
 
@@ -23,7 +23,7 @@ pip install -U pip setuptools
 brew install qtbase5-dev  
 
 -------------------------
-Current Program flow example -
+## Current Program flow example -
 
 {'user_name': 'Ajay', 'text': '\n\n"Hello Ajay, thank you for choosing our cab service. May I know your pick up location and drop off location, please? Our drivers will be happy to take you to your destination."'}
 
@@ -51,7 +51,7 @@ SUV cab: $500
 
 ---------------------------
 
-Things to do -
+## Things to do -
 
 1. I have to do a Sequentail Chain for better flow
 
